@@ -82,6 +82,7 @@ class ClinicServiceTests {
 	Pageable pageable;
 
 	@Test
+	@Tag("Dueño")
 	void shouldFindOwnersByLastName() {
 		Page<Owner> owners = this.owners.findByLastName("Davis", pageable);
 		assertThat(owners).hasSize(2);
@@ -91,6 +92,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
+	@Tag("Dueño")
 	void shouldFindSingleOwnerWithPet() {
 		Owner owner = this.owners.findById(1);
 		assertThat(owner.getLastName()).startsWith("Franklin");
@@ -100,6 +102,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
+	@Tag("Dueño")
 	@Transactional
 	void shouldInsertOwner() {
 		Page<Owner> owners = this.owners.findByLastName("Schultz", pageable);
@@ -119,6 +122,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
+	@Tag("Dueño")
 	@Transactional
 	void shouldUpdateOwner() {
 		Owner owner = this.owners.findById(1);
@@ -134,6 +138,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
+	@Tag("Mascota")
 	void shouldFindAllPetTypes() {
 		Collection<PetType> petTypes = this.owners.findPetTypes();
 
@@ -144,6 +149,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
+	@Tag("Mascota")
 	@Transactional
 	void shouldInsertPetIntoDatabaseAndGenerateId() {
 		Owner owner6 = this.owners.findById(6);
@@ -167,6 +173,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
+	@Tag("Mascota")
 	@Transactional
 	void shouldUpdatePetName() throws Exception {
 		Owner owner6 = this.owners.findById(6);
@@ -183,6 +190,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
+	@tag("Veterinario")
 	void shouldFindVets() {
 		Collection<Vet> vets = this.vets.findAll();
 

@@ -60,6 +60,7 @@ class VisitControllerTests {
 	}
 
 	@Test
+	@Tag("Dueño")
 	void testInitNewVisitForm() throws Exception {
 		mockMvc.perform(get("/owners/{ownerId}/pets/{petId}/visits/new", TEST_OWNER_ID, TEST_PET_ID))
 			.andExpect(status().isOk())
@@ -67,6 +68,7 @@ class VisitControllerTests {
 	}
 
 	@Test
+	@Tag("Dueño")
 	void testProcessNewVisitFormSuccess() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/pets/{petId}/visits/new", TEST_OWNER_ID, TEST_PET_ID)
@@ -77,6 +79,7 @@ class VisitControllerTests {
 	}
 
 	@Test
+	@Tag("Dueño")
 	void testProcessNewVisitFormHasErrors() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/pets/{petId}/visits/new", TEST_OWNER_ID, TEST_PET_ID).param("name",
