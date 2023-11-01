@@ -17,6 +17,8 @@ package org.springframework.samples.petclinic.vet;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.util.SerializationUtils;
+import org.junit.jupiter.api.Tag;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class VetTests {
 
 	@Test
-	@tag("Veterinario")
+	@Tag("Veterinario")
 	void testSerialization() {
 		Vet vet = new Vet();
 		vet.setFirstName("Zaphod");

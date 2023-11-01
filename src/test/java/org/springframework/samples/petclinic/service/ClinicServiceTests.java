@@ -38,6 +38,7 @@ import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.junit.jupiter.api.Tag;
 
 /**
  * Integration test of the Service and the Repository layer.
@@ -190,7 +191,7 @@ class ClinicServiceTests {
 	}
 
 	@Test
-	@tag("Veterinario")
+	@Tag("Veterinario")
 	void shouldFindVets() {
 		Collection<Vet> vets = this.vets.findAll();
 
