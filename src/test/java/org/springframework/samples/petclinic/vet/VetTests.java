@@ -19,7 +19,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.util.SerializationUtils;
 import org.junit.jupiter.api.Tag;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
