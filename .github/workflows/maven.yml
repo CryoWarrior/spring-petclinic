@@ -23,7 +23,7 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build with Maven Wrapper
-        run: ./mvnw -B package
+        run: ./mvnw -B package -DskipTests
         
   test_veterinario:
     runs-on: ubuntu-latest
