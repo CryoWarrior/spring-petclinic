@@ -45,7 +45,7 @@ jobs:
           cache: maven
           
       - name: Compilar (Build with Maven Wrapper)
-        run: ./mvnw -B package
+        run: ./mvnw -B package -DskipTests
 
       - name: Probar test veterinarios
         run: mvn test -Dgroups="Veterinario"
@@ -71,7 +71,7 @@ jobs:
           cache: maven
           
       - name: Compilar (Build with Maven Wrapper)
-        run: ./mvnw -B package
+        run: ./mvnw -B package -DskipTests
 
       - name: Probar test veterinarios
         run: mvn test -Dgroups="Dueño"
@@ -96,7 +96,7 @@ jobs:
           cache: maven
           
       - name: Compilar (Build with Maven Wrapper)
-        run: ./mvnw -B package
+        run: ./mvnw -B package -DskipTests
 
       - name: Probar test veterinarios
         run: mvn test -Dgroups="Mascota"
