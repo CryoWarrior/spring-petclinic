@@ -70,6 +70,7 @@ class PetControllerTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void testInitCreationForm() throws Exception {
 		mockMvc.perform(get("/owners/{ownerId}/pets/new", TEST_OWNER_ID))
 			.andExpect(status().isOk())
@@ -79,6 +80,7 @@ class PetControllerTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void testProcessCreationFormSuccess() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/pets/new", TEST_OWNER_ID).param("name", "Betty")
@@ -90,6 +92,7 @@ class PetControllerTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void testProcessCreationFormHasErrors() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/pets/new", TEST_OWNER_ID).param("name", "Betty")
@@ -104,6 +107,7 @@ class PetControllerTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void testInitUpdateForm() throws Exception {
 		mockMvc.perform(get("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID))
 			.andExpect(status().isOk())
@@ -113,6 +117,7 @@ class PetControllerTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void testProcessUpdateFormSuccess() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID).param("name", "Betty")
@@ -124,6 +129,7 @@ class PetControllerTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void testProcessUpdateFormHasErrors() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/pets/{petId}/edit", TEST_OWNER_ID, TEST_PET_ID).param("name", "Betty")

@@ -103,6 +103,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testInitCreationForm() throws Exception {
 		mockMvc.perform(get("/owners/new"))
 			.andExpect(status().isOk())
@@ -112,6 +113,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessCreationFormSuccess() throws Exception {
 		mockMvc
 			.perform(post("/owners/new").param("firstName", "Joe")
@@ -124,6 +126,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessCreationFormHasErrors() throws Exception {
 		mockMvc
 			.perform(post("/owners/new").param("firstName", "Joe").param("lastName", "Bloggs").param("city", "London"))
@@ -136,6 +139,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testInitFindForm() throws Exception {
 		mockMvc.perform(get("/owners/find"))
 			.andExpect(status().isOk())
@@ -145,6 +149,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessFindFormSuccess() throws Exception {
 		Page<Owner> tasks = new PageImpl<Owner>(Lists.newArrayList(george(), new Owner()));
 		Mockito.when(this.owners.findByLastName(anyString(), any(Pageable.class))).thenReturn(tasks);
@@ -153,6 +158,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessFindFormByLastName() throws Exception {
 		Page<Owner> tasks = new PageImpl<Owner>(Lists.newArrayList(george()));
 		Mockito.when(this.owners.findByLastName(eq("Franklin"), any(Pageable.class))).thenReturn(tasks);
@@ -163,6 +169,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessFindFormNoOwnersFound() throws Exception {
 		Page<Owner> tasks = new PageImpl<Owner>(Lists.newArrayList());
 		Mockito.when(this.owners.findByLastName(eq("Unknown Surname"), any(Pageable.class))).thenReturn(tasks);
@@ -176,6 +183,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testInitUpdateOwnerForm() throws Exception {
 		mockMvc.perform(get("/owners/{ownerId}/edit", TEST_OWNER_ID))
 			.andExpect(status().isOk())
@@ -190,6 +198,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessUpdateOwnerFormSuccess() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/edit", TEST_OWNER_ID).param("firstName", "Joe")
@@ -203,6 +212,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessUpdateOwnerFormUnchangedSuccess() throws Exception {
 		mockMvc.perform(post("/owners/{ownerId}/edit", TEST_OWNER_ID))
 			.andExpect(status().is3xxRedirection())
@@ -211,6 +221,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testProcessUpdateOwnerFormHasErrors() throws Exception {
 		mockMvc
 			.perform(post("/owners/{ownerId}/edit", TEST_OWNER_ID).param("firstName", "Joe")
@@ -226,6 +237,7 @@ class OwnerControllerTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void testShowOwner() throws Exception {
 		mockMvc.perform(get("/owners/{ownerId}", TEST_OWNER_ID))
 			.andExpect(status().isOk())

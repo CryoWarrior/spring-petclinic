@@ -19,6 +19,7 @@ package org.springframework.samples.petclinic;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.condition.DisabledInNativeImage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -56,12 +57,14 @@ class MySqlIntegrationTests {
 	private RestTemplateBuilder builder;
 
 	@Test
+	@Tag("Integracion")
 	void testFindAll() throws Exception {
 		vets.findAll();
 		vets.findAll(); // served from cache
 	}
 
 	@Test
+	@Tag("Integracion")
 	void testOwnerDetails() {
 		RestTemplate template = builder.rootUri("http://localhost:" + port).build();
 		ResponseEntity<String> result = template.exchange(RequestEntity.get("/owners/1").build(), String.class);

@@ -55,6 +55,7 @@ class PetTypeFormatterTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void testPrint() {
 		PetType petType = new PetType();
 		petType.setName("Hamster");
@@ -64,6 +65,7 @@ class PetTypeFormatterTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void shouldParse() throws ParseException {
 		given(this.pets.findPetTypes()).willReturn(makePetTypes());
 		PetType petType = petTypeFormatter.parse("Bird", Locale.ENGLISH);
@@ -72,6 +74,7 @@ class PetTypeFormatterTests {
 
 	@Test
 	@Tag("Mascota")
+	@Tag("Unitario")
 	void shouldThrowParseException() throws ParseException {
 		given(this.pets.findPetTypes()).willReturn(makePetTypes());
 		Assertions.assertThrows(ParseException.class, () -> {

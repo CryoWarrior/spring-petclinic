@@ -28,6 +28,7 @@ class VetTests {
 
 	@Test
 	@Tag("Veterinario")
+	@Tag("Unitario")
 	void testSerialization() {
 		Vet vet = new Vet();
 		vet.setFirstName("Zaphod");

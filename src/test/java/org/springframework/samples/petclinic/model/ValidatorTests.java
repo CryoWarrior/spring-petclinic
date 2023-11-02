@@ -43,6 +43,7 @@ class ValidatorTests {
 
 	@Test
 	@Tag("Dueño")
+	@Tag("Unitario")
 	void shouldNotValidateWhenFirstNameEmpty() {
 
 		LocaleContextHolder.setLocale(Locale.ENGLISH);
