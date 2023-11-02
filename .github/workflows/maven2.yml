@@ -1,0 +1,36 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Pruebas de mascota
+
+on:
+  workflow_dispatch
+
+jobs:
+  test_dueno:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '17' ]
+
+    steps:
+      - name: Descarga el proyecto (Codigo fuente)
+        uses: actions/checkout@v3
+        
+      - name: Set up JDK ${{matrix.java}}
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{matrix.java}}
+          distribution: 'adopt'
+          cache: maven
+          
+      - name: Compilar (Build with Maven Wrapper)
+        run: ./mvnw -B package -DskipTests
+
+      - name: Probar test veterinarios
+        run: mvn test -Dgroups="Mascota"
